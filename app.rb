@@ -1,6 +1,13 @@
 require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader' if development?
+require 'sinatra/activerecord'
+require 'sqlite3'
+
+set :database, { adapter: 'sqlite3', database: 'pizzashop.sqlite' }
+
+class Product < ActiveRecord::Base
+end
 
 configure do
   enable :sessions
